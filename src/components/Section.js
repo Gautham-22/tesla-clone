@@ -10,12 +10,18 @@ const Section = ({ title, desc, image, leftBtnText, rightBtnText }) => {
             </ItemText>
             <Buttons>
                 <ButtonGroup>
-                    <LeftButton>
-                        {leftBtnText}
-                    </LeftButton>
-                    <RightButton>
-                        {rightBtnText}
-                    </RightButton>
+                    { 
+                        leftBtnText &&  
+                        <LeftButton>
+                            {leftBtnText}
+                        </LeftButton>
+                    }
+                    {
+                        rightBtnText &&
+                        <RightButton>
+                            {rightBtnText}
+                        </RightButton>
+                    }
                 </ButtonGroup>
                 <DownArrow src="/images/down-arrow.svg" />
             </Buttons>
