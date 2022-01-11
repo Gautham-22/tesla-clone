@@ -6,13 +6,13 @@ import {data} from "../data";
 const Home = () => {
     return (
         <Container>
-            {data.map((element) => <Section 
-                title = {element.title}
-                desc = {element.description}
-                image = {element.image}
-                leftBtnText = {element.leftBtnText}
-                rightBtnText = {element.rightBtnText}
-            />)}
+                {data.map((element) => <Section 
+                    title = {element.title}
+                    desc = {element.description}
+                    image = {element.image}
+                    leftBtnText = {element.leftBtnText}
+                    rightBtnText = {element.rightBtnText}
+                />)}
         </Container>
     )
 };

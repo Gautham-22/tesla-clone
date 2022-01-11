@@ -6,8 +6,20 @@
     font-family: 'Rubix',sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+}
+
 body {
     overflow-x: hidden;
+}
+
+#hamburger {
+    display: none;
 }
 
 @keyframes animateDown {
@@ -19,5 +31,11 @@ body {
     }
     60% {
         transform: translateY(3px);
+    }
+}
+
+@media screen and (max-width: 1040px) {
+    #hamburger {
+        display: inline-block;
     }
 }
