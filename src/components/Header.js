@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import MenuIcon from "@material-ui/icons/Menu";
+import CloseIcon from "@material-ui/icons/Close";
 
 const Header = () => {
     return (
@@ -15,8 +16,27 @@ const Header = () => {
             <RightMenu>
                 <p><a href="#Accessories">Shop</a></p>
                 <p>Tesla Account</p>
-                <CustomMenu id='hamburger' />
+                <CustomMenu />
             </RightMenu>
+            <BurgerNav>
+                <CloseWrapper>
+                    <CloseIcon />
+                </CloseWrapper>
+                <li>Existing Inventory</li>
+                <li>Used Inventory</li>
+                <li>Trade-In</li>
+                <li>Test Drive</li>
+                <li>Cybertruck</li>
+                <li>Roadster</li>
+                <li>Semi</li>
+                <li>Charging</li>
+                <li>Powerwall</li>
+                <li>Commercial Energy</li>
+                <li>Utilities</li>
+                <li>Find Us</li>
+                <li>Support</li>
+                <li>Investor Relations</li>
+            </BurgerNav>
         </Container>
     )
 };
@@ -34,14 +54,6 @@ const Container = styled.div`
     align-items: center;
     justify-content: space-between;
     z-index: 1;
-
-    @media screen and (max-width: 600px) {
-        font-size: 14px;
-    }
-
-    @media screen and (max-width: 500px) {
-        font-size: 12px;
-    }
 
 `;
 
@@ -75,8 +87,49 @@ const RightMenu = styled.div`
         text-transform: uppercase;
     }
 
+    @media screen and (max-width: 600px) {
+        font-size: 14px;
+    }
+
+    @media screen and (max-width: 500px) {
+        font-size: 12px;
+    }
+
 `;
 
 const CustomMenu = styled(MenuIcon)`
     cursor: pointer;
+`;
+
+const BurgerNav = styled.div`
+    width: 320px;
+    padding-left: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: white;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    list-style: none;
+
+    li {
+        margin-right: 20%;
+        padding: 12px 10px;
+        font-weight: 600;
+        opacity: 0.75;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    li:hover {
+        background: rgba(0,0,0,0.1);
+    }
+`;
+
+const CloseWrapper = styled.div`
+    position: fixed;
+    top: 5%;
+    right: 2%;
 `;
