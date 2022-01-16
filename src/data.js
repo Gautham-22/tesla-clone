@@ -49,3 +49,27 @@ export const data = [
         rightBtnText: ""
     },
 ];
+
+export const items = [
+    "Existing Inventory",
+    "Used Inventory",
+    "Trade-In",
+    "Test Drive",
+    "Cybertruck",
+    "Roadster",
+    "Semi",
+    "Charging",
+    "Powerwall",
+    "Commercial Energy",
+    "Utilities",
+    "Find Us",
+    "Support",
+    "Investor Relations"
+];
+
+export const cars = [
+    "Model S",
+    "Model X",
+    "Model Y",
+    "Model 3",
+];

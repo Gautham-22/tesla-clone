@@ -1,41 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import MenuIcon from "@material-ui/icons/Menu";
 import CloseIcon from "@material-ui/icons/Close";
+import { cars, items } from '../data';
 
 const Header = () => {
+    const [burgerStatus, setBurgerStatus] = useState(false);
+
+    const toggleSideBar = () => {
+        setBurgerStatus(!burgerStatus);
+    }
+
     return (
         <Container>
             <img src="/images/logo.svg" alt="Logo" />
             <Menu>
-                <p><a href="#Model S">Model S</a></p>
-                <p><a href="#Model X">Model X</a></p>
-                <p><a href="#Model Y">Model Y</a></p>
-                <p><a href="#Model 3">Model 3</a></p>
+                {cars.map((car, index) => <p key={index}>
+                    <a href={"#" + car}>{car}</a>
+                </p>)}
             </Menu>
             <RightMenu>
                 <p><a href="#Accessories">Shop</a></p>
                 <p>Tesla Account</p>
-                <CustomMenu />
+                <CustomMenu onClick={toggleSideBar} />
             </RightMenu>
-            <BurgerNav>
+            <BurgerNav show={burgerStatus}>
                 <CloseWrapper>
-                    <CloseIcon />
+                    <CloseIcon onClick={toggleSideBar} />
                 </CloseWrapper>
-                <li>Existing Inventory</li>
-                <li>Used Inventory</li>
-                <li>Trade-In</li>
-                <li>Test Drive</li>
-                <li>Cybertruck</li>
-                <li>Roadster</li>
-                <li>Semi</li>
-                <li>Charging</li>
-                <li>Powerwall</li>
-                <li>Commercial Energy</li>
-                <li>Utilities</li>
-                <li>Find Us</li>
-                <li>Support</li>
-                <li>Investor Relations</li>
+                {items.map((item,i) => <li key={i}>{item}</li>)}
             </BurgerNav>
         </Container>
     )
@@ -113,6 +106,8 @@ const BurgerNav = styled.div`
     right: 0;
     bottom: 0;
     list-style: none;
+    transition: 0.35s ease-in;
+    transform: ${props => props.show ? "translateX(0)" : "translateX(100%)"};
 
     li {
         margin-right: 20%;
@@ -130,6 +125,7 @@ const BurgerNav = styled.div`
 
 const CloseWrapper = styled.div`
     position: fixed;
-    top: 5%;
-    right: 2%;
+    top: 4%;
+    right: 7%;
+    cursor: pointer;
 `;
